@@ -1,7 +1,8 @@
 FROM n8nio/n8n:latest
 
 # Linha comentada temporariamente para diagnóstico.
-# Suspeitamos que ela esteja causando o erro "command n8n not found".
+# Se você precisar de python3, make e g++ posteriormente, teremos que
+# encontrar uma forma diferente de instalá-los sem interferir no n8n.
 # RUN apk add --no-cache python3 make g++ && rm -rf /var/cache/apk/*
 
 # Permitir a instalação de pacotes personalizados (se necessário)
@@ -19,5 +20,6 @@ ENV N8N_PROTOCOL=http
 ENV N8N_HOST=0.0.0.0
 EXPOSE 5678
 
-# Comando para iniciar o n8n
-CMD ["n8n", "start"]
+# REMOVIDO: O comando CMD é removido para que a imagem base n8nio/n8n:latest
+# possa iniciar o n8n da forma que ela foi projetada.
+# CMD ["n8n", "start"]
