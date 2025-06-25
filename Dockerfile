@@ -1,7 +1,7 @@
 FROM n8nio/n8n:latest
 
-# Instalar dependências para pacotes personalizados (como Python)
-RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+# Instalar dependências para pacotes personalizados (como Python) usando APK (para Alpine Linux)
+RUN apk add --no-cache python3 make g++ && rm -rf /var/cache/apk/*
 
 # Permitir a instalação de pacotes personalizados (se necessário)
 ENV N8N_DISABLE_PRODUCTION_MAIN_PACKAGE_JSON=false
